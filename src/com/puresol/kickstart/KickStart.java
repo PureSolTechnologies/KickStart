@@ -3,6 +3,9 @@ package com.puresol.kickstart;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 /**
  * KickStart is the main class for the KickStart framework. This class is
@@ -14,22 +17,96 @@ import java.io.IOException;
  * @author Rick-Rainer Ludwig
  * 
  */
-public class KickStart {
+public class KickStart implements Runnable {
+
+	private final String classToStart;
+	private final String[] argumentsForClassToStart;
+	private final KickStartProperties properties;
+
+	public KickStart(String classToStart, String[] argumentsForClassToStart)
+			throws KickStartException {
+		try {
+			this.classToStart = classToStart;
+			this.argumentsForClassToStart = argumentsForClassToStart;
+			properties = KickStartProperties.getInstance();
+		} catch (FileNotFoundException e) {
+			throw new KickStartException(
+					"Could not find properties file for KickStart.");
+		} catch (IOException e) {
+			throw new KickStartException(
+					"Could not read properties file for KickStart due to IO issues.");
+		}
+	}
+
+	@Override
+	public void run() {
+		loadJars();
+		addClassDirectories();
+		runApplication();
+	}
+
+	private void loadJars() {
+		for (File jarDirectory : properties.getJarDirectories()) {
+			JarLoader.loadJarsFromDirectory(jarDirectory,
+					properties.isRecursiveJarSearch(), properties.isVerbose());
+		}
+	}
+
+	private void addClassDirectories() {
+		for (File jarDirectory : properties.getClassDirectories()) {
+			JarLoader.load(jarDirectory);
+		}
+	}
+
+	private void runApplication() {
+		try {
+			Class<?> clazz = Class.forName(classToStart);
+			Method mainMethod = clazz.getMethod("main", String[].class);
+			int modifiers = mainMethod.getModifiers();
+			if (Modifier.isStatic(modifiers) && Modifier.isPublic(modifiers)) {
+				Object params[] = new Object[1];
+				params[0] = argumentsForClassToStart;
+				mainMethod.invoke(null, params);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		try {
-			KickStartProperties properties = KickStartProperties.getInstance();
-			for (File jarDirectory : properties.getJarDirectories()) {
-				JarLoader.loadJarsFromDirectory(jarDirectory,
-						properties.isRecursiveJarSearch(),
-						properties.isVerbose());
+			if (args.length <= 0) {
+				System.out
+						.println("Usage: KickStart <class name to start> <parameters for class to start...>\n");
+				return;
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+			String classToStart = "";
+			String[] argumentsForClassToStart = new String[args.length - 1];
+			for (int i = 0; i < args.length; i++) {
+				String arg = args[i];
+				if (i == 0) {
+					classToStart = arg;
+				} else {
+					argumentsForClassToStart[i - 1] = arg;
+				}
+			}
+			KickStart kickStart = new KickStart(classToStart,
+					argumentsForClassToStart);
+			new Thread(kickStart).run();
+		} catch (KickStartException e) {
 			e.printStackTrace();
 		}
 	}

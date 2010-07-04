@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="KickStart/jar/KickStart.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/KickStart/jar/KickStart.jardesc" exportErrors="false" exportWarnings="true" includeDirectoryEntries="true" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=KickStart/src&lt;com.puresol.kickstart{KickStart.java[KickStart" manifestLocation="/KickStart/jar/KickStart.mf" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=KickStart/res"/>
+        <file path="/KickStart/build.xml"/>
+        <file path="/KickStart/ChangeLog"/>
+        <file path="/KickStart/FeatureRequests"/>
+        <file path="/KickStart/.project"/>
+        <javaElement handleIdentifier="=KickStart/src"/>
+        <file path="/KickStart/findbugs.fbp"/>
+        <file path="/KickStart/TODO"/>
+        <file path="/KickStart/build.properties"/>
+        <file path="/KickStart/.classpath"/>
+    </selectedElements>
+</jardesc>

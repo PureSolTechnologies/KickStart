@@ -26,6 +26,7 @@ public class KickStartProperties {
 
 	private static final String VERBOSE_KEY = "verbose";
 	private static final String JAR_DIRECTORIES_KEY = "jar.directories";
+	private static final String CLASS_DIRECTORIES_KEY = "class.directories";
 	private static final String JAR_DIRECTORIES_RECURSIVE_KEY = "jar.directories.recursive";
 
 	private static KickStartProperties instance = null;
@@ -82,4 +83,20 @@ public class KickStartProperties {
 		return Boolean.valueOf(properties.getProperty(VERBOSE_KEY))
 				.booleanValue();
 	}
+
+	public List<File> getClassDirectories() {
+		List<File> directories = new ArrayList<File>();
+		String dirs = properties.getProperty(CLASS_DIRECTORIES_KEY);
+		for (String dir : dirs.split(",")) {
+			dir = dir.trim();
+			File directory = new File(dir);
+			if (directory.isAbsolute()) {
+				directories.add(directory);
+			} else {
+				directories.add(new File(installDir, dir));
+			}
+		}
+		return directories;
+	}
+
 }
