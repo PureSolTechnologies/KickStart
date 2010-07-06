@@ -1,6 +1,6 @@
 /***************************************************************************
  *
- * Copyright 2009-2010 PureSol Technologies 
+ * Copyright %YEARS% %OWNER% 
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -16,20 +16,3 @@
  *
  ***************************************************************************/
 
-package com.puresol.kickstart;
-
-/**
- * This exception is thrown in events of KickStart failures.
- * 
- * @author Rick-Rainer Ludwig
- * 
- */
-public class KickStartException extends Exception {
-
-	private static final long serialVersionUID = 7801837046640248848L;
-
-	public KickStartException(String message) {
-		super(message);
-	}
-
-}

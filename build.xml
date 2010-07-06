@@ -1,19 +1,20 @@
 <!-- 
-##############################################
+####################################################################### 
 #
 # This is the ant build script.
 #
 # Author: Rick-Rainer Ludwig
 # Date:   2009-02-01
+# Copyright (C) 2009-2010 PureSol Technologies
 #
-############################################## 
+####################################################################### 
 -->
 
-<project name="PureSolTechnologiesAPI" default="all" basedir=".">
+<project name="KickStart" default="all" basedir=".">
 
 	<description>
-	PureSolTechnologiesAPI is a non open API library for PureSol-Technology internal usage.
-	Copyright (C) 2009 Rick-Rainer Ludwig
+		KickStart is a small application start up framework for simple deployment.
+		Copyright (C) 2009-2010 PureSol Technologies
 	</description>
 
 	<!-- fetch all constants, directories and tool path from properies file -->
@@ -62,7 +63,6 @@
           target: init              
          ================================= -->
 	<target name="init" description="initialize build environment">
-		<taskdef classpathref="lib.classpath" resource="tasks.properties" />
 		<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
 		<taskdef name="findbugs" classpath="${findbugs.dir}/findbugs-ant.jar" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
 		<mkdir dir="${bin.dir}" />

@@ -1,3 +1,21 @@
+/***************************************************************************
+ *
+ * Copyright 2009-2010 PureSol Technologies 
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ *
+ ***************************************************************************/
+
 package com.puresol.kickstart;
 
 import java.io.File;
@@ -39,6 +57,19 @@ public class JarLoader {
 		}
 	}
 
+	/**
+	 * This method searches a directory for JAR files and adds them to the
+	 * current classloader's CLASSPATH.
+	 * 
+	 * @param directory
+	 *            is the directory to search.
+	 * @param recursive
+	 *            is a flag to tell the method to perform a recursive search or
+	 *            not.
+	 * @param verbose
+	 *            is a flag to tell the method to print verbosity output to
+	 *            stdout.
+	 */
 	public static void loadJarsFromDirectory(File directory, boolean recursive,
 			boolean verbose) {
 		if (verbose) {
@@ -68,11 +99,13 @@ public class JarLoader {
 			}
 			JarLoader.load(library);
 		}
-		System.out.println();
 	}
 
 	/**
-	 * @param args
+	 * This method adds a JAR file to the class loaders CLASSPATH.
+	 * 
+	 * @param jarFile
+	 *            is the JAR file to add to the CLASSPATH.
 	 */
 	public static void load(File jarFile) {
 		try {

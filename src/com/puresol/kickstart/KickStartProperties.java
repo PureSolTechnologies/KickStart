@@ -1,3 +1,21 @@
+/***************************************************************************
+ *
+ * Copyright 2009-2010 PureSol Technologies 
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ *
+ ***************************************************************************/
+
 package com.puresol.kickstart;
 
 import java.io.File;
@@ -12,6 +30,8 @@ import java.util.Properties;
  * This class handles the information of $installdir/kickstart.properties and
  * translates its information into easy to read object for easy access and
  * handling.
+ * 
+ * This class is designed as singleton.
  * 
  * @author Rick-Rainer Ludwig
  * 
@@ -58,6 +78,11 @@ public class KickStartProperties {
 		properties.load(new FileInputStream(kickStartPropertiesFile));
 	}
 
+	/**
+	 * This method returns the list of all jar file directories.
+	 * 
+	 * @return
+	 */
 	public List<File> getJarDirectories() {
 		List<File> directories = new ArrayList<File>();
 		String dirs = properties.getProperty(JAR_DIRECTORIES_KEY);
@@ -73,17 +98,32 @@ public class KickStartProperties {
 		return directories;
 	}
 
+	/**
+	 * This method returns the setting for recursive search.
+	 * 
+	 * @return
+	 */
 	public boolean isRecursiveJarSearch() {
 		return Boolean.valueOf(
 				properties.getProperty(JAR_DIRECTORIES_RECURSIVE_KEY))
 				.booleanValue();
 	}
 
+	/**
+	 * This method returns the setting for verbosity.
+	 * 
+	 * @return
+	 */
 	public boolean isVerbose() {
 		return Boolean.valueOf(properties.getProperty(VERBOSE_KEY))
 				.booleanValue();
 	}
 
+	/**
+	 * This method returns the list of all directories with class files.
+	 * 
+	 * @return
+	 */
 	public List<File> getClassDirectories() {
 		List<File> directories = new ArrayList<File>();
 		String dirs = properties.getProperty(CLASS_DIRECTORIES_KEY);
