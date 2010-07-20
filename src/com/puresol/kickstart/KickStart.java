@@ -124,8 +124,9 @@ public class KickStart implements Runnable {
 			KickStart kickStart = new KickStart(classToStart,
 					argumentsForClassToStart);
 			new Thread(kickStart).run();
-		} catch (KickStartException e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
+			System.exit(1);
 		}
 	}
 
