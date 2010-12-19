@@ -56,7 +56,7 @@ public class KickStartPropertiesTest extends TestCase {
 			assertEquals(1, jarDirectories.size());
 			assertEquals(
 					new File(Directories.getInstallationDirectory(
-							KickStart.class, true), "lib"),
+							KickStart.class, true), "../lib"),
 					jarDirectories.get(0));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
