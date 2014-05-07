@@ -1,9 +1,0 @@
-\contentsline {part}{I\hspace {1em}Overview}{9}
-\contentsline {chapter}{\numberline {1}About KickStart}{11}
-\contentsline {part}{II\hspace {1em}Installation and Configuration}{13}
-\contentsline {chapter}{\numberline {2}Installation of KickStart}{15}
-\contentsline {chapter}{\numberline {3}System Configuration}{17}
-\contentsline {section}{\numberline {3.1}PATH variable}{17}
-\contentsline {section}{\numberline {3.2}Cron}{17}
-\contentsline {part}{III\hspace {1em}Usage}{19}
-\contentsline {part}{IV\hspace {1em}Appendices}{21}
