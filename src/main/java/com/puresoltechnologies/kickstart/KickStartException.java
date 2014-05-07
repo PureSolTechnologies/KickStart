@@ -16,7 +16,7 @@
  *
  ***************************************************************************/
 
-package com.puresol.kickstart;
+package com.puresoltechnologies.kickstart;
 
 /**
  * This exception is thrown in events of KickStart failures.

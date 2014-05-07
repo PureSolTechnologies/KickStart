@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+	<properties>
+		<title>Introduction</title>
+		<author email="ludwig@puresol-technologies.com">Rick-Rainer Ludwig</author>
+	</properties>
+
+	<!-- Optional HEAD element, which is copied as is into the XHTML <head> 
+		element -->
+	<!-- head> <meta . /> </head -->
+
+	<body>
+		<section name="Introduction">
+			<p>
+				The Java Virtual Machine is a great environment to run
+				applications in, but the distribution of the applications in JAR
+				files which need to be coupled together is a nightmare. This
+				nightmare got the name JAR Hell. Every application to be started
+				consisting of more than one JAR file is difficult to distribute,
+				because the JAR files need to be opened and altered to get the
+				MANIFEST.MF files' CLASSPATH entry right.
+			</p>
+			<p>
+				Some technologies were developed due to the JAR hell like Java EE
+				containers, OSGi and so forth which tackle the issue on different
+				levels in different complexities. But, for a simple Java command
+				line tool or a small Swing application it is still to complex.
+			</p>
+			<p>
+				In this niche KickStart provides the functionality needed to start
+				Java applications without the need to package all JARs into a large,
+				fat JAR and without ana additional heavy-weight container.
+				Kickstart's executable JAR is used and a properties files containing
+				some information and that's it. A simple, light-weight Java
+				application can be deployed in a cross-platform manner.
+			</p>
+		</section>
+	</body>
+</document>

@@ -16,12 +16,14 @@
  *
  ***************************************************************************/
 
-package com.puresol.kickstart;
+package com.puresoltechnologies.kickstart;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.junit.Test;
+
+import com.puresoltechnologies.kickstart.KickStart;
 
 import junit.framework.TestCase;
 

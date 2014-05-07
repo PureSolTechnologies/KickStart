@@ -16,11 +16,13 @@
  *
  ***************************************************************************/
 
-package com.puresol.kickstart;
+package com.puresoltechnologies.kickstart;
 
 import java.io.File;
 
 import org.junit.Test;
+
+import com.puresoltechnologies.kickstart.Directories;
 
 import junit.framework.TestCase;
 

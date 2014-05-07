@@ -16,7 +16,7 @@
  *
  ***************************************************************************/
 
-package com.puresol.kickstart;
+package com.puresoltechnologies.kickstart;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,6 +24,10 @@ import java.io.IOException;
 import java.util.List;
 
 import org.junit.Test;
+
+import com.puresoltechnologies.kickstart.Directories;
+import com.puresoltechnologies.kickstart.KickStart;
+import com.puresoltechnologies.kickstart.KickStartProperties;
 
 import junit.framework.TestCase;
 

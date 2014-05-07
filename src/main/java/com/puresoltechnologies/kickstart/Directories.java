@@ -16,7 +16,7 @@
  *
  ***************************************************************************/
 
-package com.puresol.kickstart;
+package com.puresoltechnologies.kickstart;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
