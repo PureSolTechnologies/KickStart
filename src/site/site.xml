@@ -1,15 +1,13 @@
 <project xmlns="http://maven.apache.org/DECORATION/1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd">
+    <skin>
+        <groupId>com.puresoltechnologies.maven.skins</groupId>
+        <artifactId>puresol-technologies-skin</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </skin>
 	<bannerLeft>
-		<name>PureSol Technologies</name>
-		<src>http://puresol-technologies.com/images/logos/puresol-logo-green.png</src>
-		<title>PureSol Technologies</title>
-		<href>http://puresol-technologies.com</href>
-	</bannerLeft>
-	<bannerRight>
 		<name>KickStart</name>
-		<title>KickStart</title>
-	</bannerRight>
+	</bannerLeft>
 	<body> 	
  		<menu name="Overview">
       			<item name="Introduction" href="introduction.html" /> 		
