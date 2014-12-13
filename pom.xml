@@ -174,12 +174,6 @@
 					<formats>
 						<format>xml</format>
 					</formats>
-					<check>
-						<branchRate>0</branchRate>
-						<lineRate>0</lineRate>
-						<totalBranchRate>25</totalBranchRate>
-						<totalLineRate>25</totalLineRate>
-					</check>
 				</configuration>
 				<executions>
 					<execution>
